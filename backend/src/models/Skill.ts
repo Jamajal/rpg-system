@@ -1,0 +1,31 @@
+export interface SkillProps {
+  acrobatics?: number;
+  training?: number;
+  arts?: number;
+  atletics?: number;
+  currentAfairs?: number;
+  science?: number;
+  crime?: number;
+  diplomacy?: number;
+  deception?: number;
+  fortitude?: number;
+  initiative?: number;
+  intimidation?: number;
+  insight?: number;
+  investigation?: number;
+  fight?: number;
+  medicine?: number;
+  occultism?: number;
+  perception?: number;
+  piloting?: number;
+  aiming?: number;
+  professionName?: string;
+  profession?: number;
+  reflexes?: number;
+  religion?: number;
+  survival?: number;
+  tactics?: number;
+  tecnology?: number;
+  will?: number;
+  [key: string]: number | string | undefined;
+}

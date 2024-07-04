@@ -1,0 +1,200 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  username   String
+  email      String   @unique
+  password   String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  characters     Characters[]
+  masterOfTables Tables[]
+  playerOfTables TableUsers[]
+}
+
+model Tables {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  code       String   @unique
+  password   String
+  status     Boolean  @default(true)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  master   Users  @relation(fields: [masterId], references: [id])
+  masterId String @unique @db.ObjectId
+
+  players TableUsers[]
+
+  characters Characters[]
+
+  system System @relation(fields: [systemId], references: [id])
+  systemId String @db.ObjectId
+}
+
+model TableUsers {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  table   Tables @relation(fields: [tableId], references: [id])
+  tableId String @db.ObjectId
+  user    Users  @relation(fields: [userId], references: [id])
+  userId  String @db.ObjectId
+}
+
+model Characters {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  genre      String
+  specie     String
+  classes    String
+  background String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user   Users  @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
+
+  table   Tables? @relation(fields: [tableId], references: [id])
+  tableId String? @db.ObjectId
+
+  //sheet      OrderCharacterSheet? @relation(fields: [sheetId], references: [id])
+  //sheetId    String @db.ObjectId? @unique @default('')
+  
+  system   System @relation(fields: [systemId], references: [id])
+  systemId String @db.ObjectId   
+}
+
+model OrderCharacterSheet {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  origin        String
+  class         String
+  nex           Int
+  movement      Int
+  patent        String
+  totalPV       Int
+  currentPV     Int
+  totalPE       Int
+  currentPE     Int
+  totalSanity   Int
+  currentSanity Int
+  defense       Int
+  protection    String
+  resistence    String
+  appearance    String
+  personality   String
+  historic      String
+  objective     String
+
+  //image String
+  //character              Characters 
+  
+  // skills                String
+  // rituals               String
+  // Resistences
+  inventoryMaxSpace Int
+  // InventaryItens[]
+
+  rituaisDT Int
+  // habilitiesAndRituals
+}
+
+model Attributes {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  strength  Int
+  agility   Int
+  intellect Int
+  vigor     Int
+  presence  Int
+
+  // Character sheet
+}
+
+model Skills {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  acrobatics     Int
+  training       Int
+  arts           Int
+  atletics       Int
+  currentAfairs  Int
+  science        Int
+  crime          Int
+  diplomacy      Int
+  deception      Int
+  fortitude      Int
+  initiative     Int
+  intimidation   Int
+  insight        Int
+  investigation  Int
+  fight          Int
+  medicine       Int
+  occultism      Int
+  perception     Int
+  piloting       Int
+  aiming         Int
+  professionName String
+  profession     Int
+  reflexes       Int
+  religion       Int
+  survival       Int
+  tactics        Int
+  tecnology      Int
+  will           Int
+
+  // Character sheet
+}
+
+model Attacks {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  type    String
+  test    Int
+  range   Int
+  damage  String
+  critic  Int
+  special String
+
+  // Character sheet
+}
+
+model HabilitiesAndRituals {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  cost Int
+  page Int
+  description String
+}
+
+model InventoryItem {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String @unique
+  details  String
+  space    Int
+  prestigy Int
+
+  // Character sheet
+}
+
+model System {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String   @unique
+  description String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  characters  Characters[]
+  tables Tables[]
+}
