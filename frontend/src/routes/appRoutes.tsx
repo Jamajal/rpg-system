@@ -38,7 +38,7 @@ const router = createBrowserRouter([
 export const AppRoutes = () => {
   return (
     <AuthProvider>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </AuthProvider>
   );
 };

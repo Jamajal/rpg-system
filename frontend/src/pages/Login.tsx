@@ -2,16 +2,17 @@ import { useContext, useState } from 'react';
 import { createSession } from '../services/Api';
 import { AuthContext } from '../contexts/authContext';
 import { useNavigate } from 'react-router-dom';
+import { InputComponent } from '../components/InputComponent'
 
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const { registerSession } = useContext(AuthContext);
+  const { registerSession } = useContext(AuthContext) as any;
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: any) => {
     e.preventDefault();
 
     if (!email) {
@@ -28,8 +29,6 @@ export const Login = () => {
       const response = await createSession(email, password);
       const isAuthenticated = await registerSession(response.data.object);
 
-      //console.log(isAuthenticated);
-
       if (isAuthenticated.response) {
         navigate('/');
       } else {
@@ -42,49 +41,36 @@ export const Login = () => {
     }
   };
 
+  function HandlerEmail(e: any): void {
+    setEmail(e.target.value);
+    setError(''); 
+  }
+
+  function HandlerPassword(e: any): void {
+    setPassword(e.target.value);
+    setError(''); 
+  }
+
+  function CreateAccount(): void {
+    console.log('criando conta')
+  }
+
   return (
-    <div>
-      <form onSubmit={(e) => handleLogin(e)}>
-        <input
-          type="email"
-          name="email"
-          placeholder="cellbo@gmail.com"
-          id="email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setError('');
-          }}
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-            setError('');
-          }}
-        />
-        <button type="submit">Logar</button>
-        {error && <p>{error}</p>}
-      </form>
-      {/* <div className="w-60 h-60 flex justify-center items-center gap-3 text-xl font-bold bg-purple-200">
-        <p className="text-red-500">linha1</p>
-        <p className="text-yellow-500">lin2</p>
-        <p className="text-green-500">linha3</p>
-      </div> 
-      <button
-        className="
-          py-2 
-          px-4 
-          font-bold 
-          text-lg 
-          rounded-sm 
-          text-white 
-          bg-black 
-          hover:bg-gray-800"
-      >
-        Enviar
-      </button> */}
+    <div className="bg-[url('../assets/dados.jpeg')] h-screen w-screen bg-no-repeat bg-cover bg-scroll bg-center">
+      <div className="flex flex-col h-screen justify-center items-center gap-2">
+        <div className="flex items-center">
+          <div className="flex flex-col gap-2 bg-white shadow-md rounded-md p-6 h-96 w-96">
+            <h2 className="text-lg font-bold text-center">Login</h2>
+            <form onSubmit={(e) => handleLogin(e)}>
+              <InputComponent inputId='email' inputName='Email' onChange={HandlerEmail} placeholder='Digite seu Email' type='email'/>
+              <InputComponent inputId='password' inputName='Senha' onChange={HandlerPassword} placeholder='Digite sua Senha' type='password'/>
+              <button type="submit" className="mt-2 w-full text-sm bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white shadow">Logar</button>
+              <button type="button" className="mt-2 w-full text-sm bg-gray-500 hover:bg-blue-600 px-6 py-2 rounded text-white shadow" onClick={CreateAccount}>Criar conta</button>
+              {error && <p>{error}</p>}
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-  );
-};
+  )
+}
