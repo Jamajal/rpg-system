@@ -23,3 +23,7 @@ export const validateToken = async (token: string) => {
     },
   });
 };
+
+export const createUser = async (username: string, email: string, password: string) => {
+  return api.post('/users', {username, email, password});
+}

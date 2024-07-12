@@ -19,7 +19,7 @@ export const InputComponent = (props: InputComponentProps) => {
                 id={inputId}
                 onChange={(e) => onChange(e)}
                 value={inputValue}
-                className="w-full bg-gray-50 border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20 rounded px-3 py-1 text-lg text-gray-800 pleaceholder-gray-300 focus:outline-none transitions duration-200 ease-in-out"
+                className="w-full mb-4 bg-gray-50 border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20 rounded px-3 py-1 text-lg text-gray-800 pleaceholder-gray-300 focus:outline-none transitions duration-200 ease-in-out"
             />
         </>
     )

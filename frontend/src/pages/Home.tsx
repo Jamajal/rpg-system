@@ -4,7 +4,7 @@ import { AuthContext } from '../contexts/authContext';
 
 export const Home = () => {
   const navigate = useNavigate();
-  const { user, signout } = useContext(AuthContext);
+  const { user, signout } = useContext(AuthContext) as any;
 
   const [contentDisplayed, setContentDisplayed] = useState({
     type: '',

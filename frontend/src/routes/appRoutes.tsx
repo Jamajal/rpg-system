@@ -3,9 +3,10 @@ import { Login } from '../pages/Login';
 import { Home } from '../pages/Home';
 import { AuthContext, AuthProvider } from '../contexts/authContext';
 import { useContext } from 'react';
+import { SingIn } from '../pages/SingIn';
 
-const Private = ({ children }) => {
-  const { authenticated, loading } = useContext(AuthContext);
+const Private = ({ children } : any) => {
+  const { authenticated, loading } = useContext(AuthContext) as any;
 
   if (loading) return <div className="loading">Carregando...</div>;
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/singIn',
+    element: <SingIn />,
   },
   {
     path: '/',
