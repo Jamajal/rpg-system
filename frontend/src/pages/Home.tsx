@@ -39,7 +39,7 @@ export const Home = () => {
 
   const renderContent = () => {
     if (contentDisplayed.type === 'characters') {
-      return contentDisplayed.arr.map((element: any) => (
+      return contentDisplayed?.arr?.map((element: any) => (
         <div key={element.id}>
           <h1>{element.name}</h1>
           <h2>{element.classes}</h2>
@@ -50,7 +50,7 @@ export const Home = () => {
       contentDisplayed.type === 'master' ||
       contentDisplayed.type === 'player'
     ) {
-      return contentDisplayed.arr.map((element: any) => (
+      return contentDisplayed?.arr?.map((element: any) => (
         <div key={element.id}>
           <h1>{element.name}</h1>
           <h1>{element.code}</h1>
