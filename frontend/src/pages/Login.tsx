@@ -68,6 +68,7 @@ export const Login = () => {
                 <a className="text-sm text-gray-500 hover:underline">Esqueceu sua senha?</a>
               </div>
               <button type="submit" className="mt-2 w-full text-sm bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white shadow">Entrar</button>
+              <p className="text-center">ou</p>
               <button type="button" className="mt-2 mb-2 w-full text-sm bg-gray-500 hover:bg-blue-500 px-6 py-2 rounded text-white shadow" onClick={SingIn}>Criar conta</button>
               {error && <p className="text-red-500">{error}</p>}
             </form>
