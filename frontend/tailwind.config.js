@@ -5,15 +5,19 @@ export default {
   theme: {
     extend: {
       width:{
-        '73': '40px',
-        '74': '1200px',
+        '73': '1235px',
       },
 
       height:{
-        '73': '20px',
-        '74': '850px',
+        '73': '900px',
+        'login': '410px'
       },
       
+      colors: {
+        'body': '#FFFFFF',
+        'aside': '#EAE8E7',
+        'main': '#F0F0F0'
+      }
     },
   },
   plugins: [],

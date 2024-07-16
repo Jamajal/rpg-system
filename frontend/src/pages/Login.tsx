@@ -59,7 +59,7 @@ export const Login = () => {
     <div className="bg-[url('../assets/dados.jpeg')] h-screen w-screen bg-no-repeat bg-cover bg-scroll bg-center">
       <div className="flex flex-col h-screen justify-center items-center gap-2">
         <div className="flex items-center">
-          <div className="flex flex-col gap-2 bg-white shadow-md rounded-md p-6 h-96 w-96">
+          <div className="flex flex-col gap-2 bg-white shadow-md rounded-md p-6 h-login w-96">
             <h2 className="text-3xl font-bold text-center">Login</h2>
             <form onSubmit={(e) => handleLogin(e)}>
               <InputComponent inputId='email' inputName='Email' onChange={HandlerEmail} placeholder='Digite seu Email' type='email' />

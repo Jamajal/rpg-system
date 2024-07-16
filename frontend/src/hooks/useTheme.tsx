@@ -19,7 +19,7 @@ export const ThemeContextProvider: React.FC<ThemeContextProvider> = ({ children,
         const root = window.document.documentElement;
 
         if(theme === "dark"){
-            root.classList.add(theme);
+            root.classList.add("dark");
         } else{
             root.classList.remove("dark");
         }
@@ -28,7 +28,7 @@ export const ThemeContextProvider: React.FC<ThemeContextProvider> = ({ children,
     }, [theme])
 
     const toggleTheme = () =>{
-        setTheme((previewTheme) =>  (previewTheme === "dark" ? "light" : "dark"));
+        setTheme((previewTheme) => (previewTheme === "dark" ? "light" : "dark"));
     }
     
     return(
