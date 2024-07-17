@@ -6,6 +6,8 @@ import { useContext } from 'react';
 import { SingIn } from '../pages/SingIn';
 import { Characters } from '../pages/Characters';
 import { MenuComponent } from '../components/MenuComponent';
+import { MasterTables } from '../pages/MasterTables';
+import { PlayingTables } from '../pages/PlayingTables';
 
 const Root = () => {
   return (
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
     {
       path: 'characters',
       element: <Characters />
+    },
+    {
+      path: 'mastertables',
+      element: <MasterTables />
+    },
+    {
+      path: 'playintables',
+      element: <PlayingTables />
     },
     ]
   },

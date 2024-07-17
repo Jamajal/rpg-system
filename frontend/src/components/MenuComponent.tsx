@@ -72,16 +72,22 @@ export const MenuComponent = () => {
       <p className="justify-self-start text-black dark:text-white">{user?.username ? `Olá ${user.username}!` : ''}</p>
 
       <nav className="flex flex-col flex-1 space-y-4 mt-10 pt-10 border-t border-gray-600">
-        <Link to="/" className="flex items-center gap-3 text-black dark:text-white font-semibold hover:bg-black/10 dark:hover:bg-white/10 rounded-lg"><HomeIcon /> Início</Link>
-        <ul>
-          <li className="flex items-center gap-3 text-black dark:text-white font-semibold hover:bg-black/10 dark:hover:bg-white/10 rounded-lg">
-            <Link to="/characters"><Users /> Personagens</Link>
+        <ul className="flex flex-col gap-2">
+          <li className="flex gap-1 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg p-1 text-black dark:text-white font-semibold">
+            <HomeIcon />
+            <Link to="/">Início</Link>
           </li>
-          <li className="flex items-center gap-3 text-black dark:text-white font-semibold hover:bg-black/10 dark:hover:bg-white/10 rounded-lg">
-            <Link to="/characters"><Layers /> Mesas mestrando</Link>
+          <li className="flex gap-1 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg p-1 text-black dark:text-white font-semibold">
+            <Users />
+            <Link to="/characters">Personagens</Link>
           </li>
-          <li className="flex items-center gap-3 text-black dark:text-white font-semibold hover:bg-black/10 dark:hover:bg-white/10 rounded-lg">
-            <Link to="/characters"><Dices /> Mesas jogando</Link>
+          <li className="flex gap-1 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg p-1 text-black dark:text-white font-semibold">
+            <Layers />
+            <Link to="/mastertables">Mesas mestrando</Link>
+          </li>
+          <li className="flex gap-1 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg p-1 text-black dark:text-white font-semibold">
+            <Dices />
+            <Link to="/characters">Mesas jogando</Link>
           </li>
         </ul>
         <button onClick={toggleTheme} className="flex items-center gap-3 text-black dark:text-white font-semibold hover:bg-black/10 dark:hover:bg-white/10 rounded-lg">
