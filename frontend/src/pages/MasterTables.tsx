@@ -4,9 +4,10 @@ import { AuthContext } from "../contexts/authContext";
 export const MasterTables = () => {
     const { user } = useContext(AuthContext) as any;
 
-    return(
+    return (
         <>
-        <p>Mesas mestradas</p>
+            <p>Mesas mestradas</p>
+            <button>Criar Campanha</button>
         </>
     )
 }

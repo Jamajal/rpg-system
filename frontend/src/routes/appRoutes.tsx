@@ -17,7 +17,7 @@ const Root = () => {
           <div className="flex flex-1 gap-0.5">
             <MenuComponent />
             <main className="flex-1 flex items-center">
-              <div className="flex-1 w-73 h-73 bg-main dark:bg-gray-500 rounded-lg">
+              <div className="flex-1 w-73 h-73 bg-main dark:bg-gray-700 rounded-lg border-solid border-2 border-gray-600 dark:border-white-900">
                 <Outlet />
               </div>
             </main>
@@ -31,7 +31,7 @@ const Root = () => {
 const Private = ({ children }: any) => {
   const { authenticated, loading } = useContext(AuthContext) as any;
 
-  if (loading) return <div className="loading">Carregando...</div>;
+  // if (loading) return <div className="loading">Carregando...</div>;
 
   if (!authenticated) {
     return (
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       element: <MasterTables />
     },
     {
-      path: 'playintables',
+      path: 'playingtables',
       element: <PlayingTables />
     },
     ]

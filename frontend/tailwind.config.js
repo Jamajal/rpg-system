@@ -14,7 +14,7 @@ export default {
       },
       
       colors: {
-        'body': '#FFFFFF',
+        'body': '#FAF9F6',
         'aside': '#EAE8E7',
         'main': '#F0F0F0'
       }

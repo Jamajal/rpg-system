@@ -4,58 +4,6 @@ import { Link } from 'react-router-dom'
 import { useTheme } from '../hooks/useTheme';
 import { AuthContext } from '../contexts/authContext';
 
-
-
-
-// const [contentDisplayed, setContentDisplayed] = useState({
-//   type: '',
-//   arr: [],
-// });
-
-
-// const handleShowCharacters = async () => {
-//   setContentDisplayed({
-//     type: 'characters',
-//     arr: user.characters,
-//   });
-// };
-
-// const handleShowMasteringTables = async () => {
-//   setContentDisplayed({
-//     type: 'master',
-//     arr: user.masterOfTables,
-//   });
-// };
-
-// const handleShowPlayingTables = async () => {
-//   setContentDisplayed({
-//     type: 'player',
-//     arr: user.playerOfTables,
-//   });
-// };
-
-// export const renderContent = () => {
-//   if (contentDisplayed.type === 'characters') {
-//     return contentDisplayed?.arr?.map((element: any) => (
-//       <div key={element.id}>
-//         <h1>{element.name}</h1>
-//         <h2>{element.classes}</h2>
-//         <h2>{element.specie}</h2>
-//       </div>
-//     ));
-//   } else if (
-//     contentDisplayed.type === 'master' ||
-//     contentDisplayed.type === 'player'
-//   ) {
-//     return contentDisplayed?.arr?.map((element: any) => (
-//       <div key={element.id}>
-//         <h1>{element.name}</h1>
-//         <h1>{element.code}</h1>
-//       </div>
-//     ));
-//   }
-// };
-
 export const MenuComponent = () => {
   const { theme, toggleTheme } = useTheme();
   const { user, signout } = useContext(AuthContext) as any;
@@ -87,7 +35,7 @@ export const MenuComponent = () => {
           </li>
           <li className="flex gap-1 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg p-1 text-black dark:text-white font-semibold">
             <Dices />
-            <Link to="/characters">Mesas jogando</Link>
+            <Link to="/playingtables">Mesas jogando</Link>
           </li>
         </ul>
         <button onClick={toggleTheme} className="flex items-center gap-3 text-black dark:text-white font-semibold hover:bg-black/10 dark:hover:bg-white/10 rounded-lg">

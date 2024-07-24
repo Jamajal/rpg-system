@@ -3,10 +3,11 @@ import { AuthContext } from "../contexts/authContext";
 
 export const PlayingTables = () => {
     const { user } = useContext(AuthContext) as any;
-    
-    return(
+
+    return (
         <>
-        <p>Mesas Jogando</p>
+            <p>Mesas Jogando</p>
+            <button>Entrar em uma campanha</button>
         </>
     )
 }
