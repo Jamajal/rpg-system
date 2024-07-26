@@ -27,3 +27,7 @@ export const validateToken = async (token: string) => {
 export const createUser = async (username: string, email: string, password: string) => {
   return api.post('/users', {username, email, password});
 }
+
+export const createCharacter = async (name: string, classes: string, genre: string, specie: string, background: string, userId: string, tableId: string, systemId: string) => {
+  return api.post('/character', {name, classes, genre, specie, background, userId, tableId, systemId});
+} 

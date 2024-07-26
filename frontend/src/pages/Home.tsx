@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { user } = useContext(AuthContext) as any;
-  console.log(user, 'user')
+
+  console.log(user, 'usuario')
 
   return (
     <div className="h-73 content-center">
@@ -23,7 +24,7 @@ export const Home = () => {
                 <p>{`Código: ${table.code}`}</p>
               </Link>
             ))
-          ) : (<Link to="/mastertables" className="flex flex-col font-semibold text-md hover:underline hover:bg-black/10 p-1">Você ainda não mestrou nenhuma campanha</Link>)}
+          ) : (<Link to="/mastertables" className="flex flex-col font-semibold text-md text-center hover:underline hover:bg-black/10 p-1">Você ainda não mestrou nenhuma campanha</Link>)}
         </div>
         <div className="flex flex-col bg-white dark:bg-gray-400 w-96 h-96 rounded-lg p-6 text-black dark:text-white gap-6">
           <h1 className="font-bold text-lg text-center">Mesas Jogadas</h1>
@@ -34,7 +35,7 @@ export const Home = () => {
                 <p>{`Código: ${table.code}`}</p>
               </Link>
             ))
-          ) : (<Link to="/playingtables" className="flex flex-col font-semibold text-md hover:underline hover:bg-black/10 p-1">Você ainda não jogou nenhuma campanha</Link>)}
+          ) : (<Link to="/playingtables" className="flex flex-col font-semibold text-center text-md hover:underline hover:bg-black/10 p-1">Você ainda não jogou nenhuma campanha</Link>)}
         </div>
       </div>
     </div>
